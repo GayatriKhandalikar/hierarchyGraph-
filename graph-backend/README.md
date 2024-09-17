@@ -6,13 +6,13 @@
 
 ## Features
 
-- **Node.js and Express**: Fast, unopinionated, and minimal web framework.Hierarchy
+- **Node.js and Express**: Fast, un opinionated, and minimal web framework.Hierarchy
 - **MongoDB**: NoSQL database for storing graph data.
 - **D3.js**: Integration with graph visualization libraries.
 - **Mocha & Chai**: Comprehensive testing setup for both unit and API tests.
 - **Environment Configuration**: Easily manage environment variables with `dotenv`.
 - **Cross-Origin Resource Sharing (CORS)**: Enabled for secure API access.
-
+ 
 ## Installation
 
 ### Prerequisites
@@ -75,7 +75,7 @@ To run the tests for this project, you can use the following commands:
 
 The project is organized into several key directories and files. Here's an overview of the structure:
 
-
+```
 graph-backend/
 ├── src/
 |   ├── config/
@@ -93,3 +93,31 @@ graph-backend/
 ├── .env                         # Environment variables
 └── package.json                 # Project config
 └── README.md                    # Project documentation
+
+```
+
+
+## Dependencies
+
+- **body-parser**: Middleware for parsing incoming request bodies.
+- **cors**: Middleware for enabling CORS.
+- **dotenv**: Loads environment variables from `.env` file.
+- **express**: Web framework for Node.js.
+- **mongoose**: MongoDB object modeling tool.
+
+## Dev Dependencies
+
+- **chai**: Assertion library for Node.js.
+- **chai-http**: HTTP integration testing with Chai assertions.
+- **mocha**: JavaScript test framework for Node.js.
+- **mongodb-memory-server**: In-memory MongoDB server for testing.
+- **sinon**: Test spies, stubs, and mocks.
+- **supertest**: HTTP assertions made easy.
+
+## License
+
+This project is licensed under the ISC License.
+
+## Author
+
+This project was created by Gayatri Ganesh Khandalikar. Feel free to reach out if you have any questions or suggestions.
