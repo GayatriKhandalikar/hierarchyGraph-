@@ -34,9 +34,9 @@ For details on configuring Vite, refer to the [Vite Configuration Reference](htt
 
    To install the necessary dependencies, run:
 
-  ```bash
-npm install
-```
+   ```sh
+   npm install
+   ```
 
 3. **Start Development Server**
 
@@ -73,18 +73,17 @@ The back end is a Node.js Express application designed to serve graph data from 
 1. **Clone the Repository**
 
    ```bash
-git clone https://github.com/GayatriKhandalikar/hierarchyGraph-.git 
-cd hierarchyGraph-/graph-backend
+   git clone https://github.com/GayatriKhandalikar/hierarchyGraph-.git
+   hierarchyGraph-/graph-backend
    ```
 
 2. **Install Dependencies**
 
    To install the necessary dependencies, run:
 
-  ```bash
+```sh
 npm install
 ```
-
 
 3. **Set Up Environment Variables**
 
@@ -117,9 +116,10 @@ npm start
 To run the tests for this project, you can use the following commands:
 
 - **Running Unit Tests**: To run the unit tests, use the following command:
-  ```bash
-  npm run test
-  ```
+ 
+```sh
+npm run test
+```
 
 ## License
 
