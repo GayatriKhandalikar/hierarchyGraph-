@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, it, expect } from 'vitest'
 import App from '@/App.vue'
-import TheHeader from '@/components/layouts/TheHeader.vue'
+import TheHeader from '@/components/layouts/Header.vue'
 
 describe('App.vue', () => {
   it('renders the main layout correctly', () => {

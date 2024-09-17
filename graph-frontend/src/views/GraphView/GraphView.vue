@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { useGraph } from '../../composables/useGraph.js';
+import { useGraph } from '../../composable/useGraphView.js';
 import BaseModal from '@/components/UI/modal.vue'
 import { ref, computed } from 'vue';
 

@@ -1,10 +1,10 @@
 import { shallowMount } from '@vue/test-utils';
 import { describe, it, expect, vi } from 'vitest';
 import GraphView from '@/views/GraphView/GraphView.vue';
-import * as useGraphComposable from '@/composables/useGraph'; 
+import * as useGraphComposable from '@/composable/useGraphView'; 
 
 // Mock the composable
-vi.mock('@/composables/useGraph', () => ({
+vi.mock('@/composable/useGraphView', () => ({
   useGraph: vi.fn(() => ({
     hierarchyGraph: { value: null },
     error: { value: 'Test error message' },
@@ -46,4 +46,3 @@ describe('GraphView', () => {
   });
 
 });
-

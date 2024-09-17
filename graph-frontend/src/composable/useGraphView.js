@@ -1,9 +1,50 @@
 import { ref, onMounted } from 'vue'
 import * as d3 from 'd3'
 
+const error = ref(null)
+
+const fetchData = (apiUrl) => {
+  return fetch(apiUrl)
+    .then((response) => {
+      if (!response.ok) {
+        // Throw an error if the response is not okay
+        throw new Error(
+          `Network request failed with status: ${response.status} (${response.statusText})`
+        )
+      }
+      // Parse and return the JSON data
+      return response.json()
+    })
+    .then((graphData) => {
+      return graphData
+    })
+    .catch((err) => {
+      // Handle any errors that occur during the fetch
+      error.value = err.message
+      console.error('Failed to fetch data:', err.message)
+      return null
+    })
+}
+const generateHierarchy = (graphData) => {
+  const map = graphData.reduce((acc, item) => {
+    acc[item.name] = { ...item, children: [] }
+    return acc
+  }, {})
+
+  const hierarchy = graphData.reduce((acc, item) => {
+    if (item.parent) {
+      map[item.parent].children.push(map[item.name])
+    } else {
+      acc.push(map[item.name])
+    }
+    return acc
+  }, [])
+
+  return hierarchy[0] // Return the root node of the hierarchy
+}
+
 export function useGraph(apiUrl, isModalOpen) {
   const hierarchyGraph = ref(null)
-  const error = ref(null)
   const nodeData = ref([])
 
   // Method to close the modal
@@ -12,40 +53,9 @@ export function useGraph(apiUrl, isModalOpen) {
     nodeData.value = []
   }
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch(apiUrl)
-      if (!response.ok) {
-        // Throw an error
-        throw new Error(
-          `Network request failed with status: ${response.status} (${response.statusText})`
-        )
-      }
-      const graphData = await response.json()
-      return graphData
-    } catch (err) {
-      // Handle the error and display the message
-      error.value = err.message
-      console.error('Failed to fetch data:', err.message)
-      return null
-    }
-  }
-  const generateHierarchy = (graphData) => {
-    const map = {}
-    graphData.forEach((item) => (map[item.name] = { ...item, children: [] }))
-    const hierarchy = []
-    graphData.forEach((item) => {
-      if (item.parent) {
-        map[item.parent].children.push(map[item.name])
-      } else {
-        hierarchy.push(map[item.name])
-      }
-    })
-    return hierarchy[0] // Return the hierarchy node
-  }
   const buildGraph = async () => {
     try {
-      const data = await fetchData()
+      const data = await fetchData(apiUrl)
       if (!data || data.length === 0) {
         error.value = 'There is no data or empty data'
         return

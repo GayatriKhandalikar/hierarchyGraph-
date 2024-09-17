@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import TheHeader from './components/layouts/TheHeader.vue';
+import TheHeader from './components/layouts/Header.vue';
 </script>
 
 <style lang="css" scoped>
