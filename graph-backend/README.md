@@ -23,7 +23,8 @@
 ### 1. Clone the Repository
 
 ```bash
-git clone --- 
+git clone  https://github.com/GayatriKhandalikar/hierarchyGraph-.git 
+
 cd hierarchyGraph-/graph-backend
 ```
 
