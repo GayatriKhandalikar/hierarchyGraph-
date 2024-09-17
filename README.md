@@ -73,17 +73,18 @@ The back end is a Node.js Express application designed to serve graph data from 
 1. **Clone the Repository**
 
    ```bash
-   git clonehttps://github.com/GayatriKhandalikar/hierarchyGraph-.git 
+git clone https://github.com/GayatriKhandalikar/hierarchyGraph-.git 
 cd hierarchyGraph-/graph-backend
    ```
 
 2. **Install Dependencies**
 
-To install the necessary dependencies, run:
+   To install the necessary dependencies, run:
 
-```sh
+  ```bash
 npm install
 ```
+
 
 3. **Set Up Environment Variables**
 
