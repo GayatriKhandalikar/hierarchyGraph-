@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node src/server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha src/**/*.spec.js --timeout 40000 --exit",
     "seed": "node src/seed.js"
   },
   "keywords": [],
@@ -16,10 +16,16 @@
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.21.0",
-    "mongoose": "^8.6.2"
+    "express": "^4.21.0"
   },
   "devDependencies": {
-    "prettier": "^3.3.3"
+    "chai": "^5.1.1",
+    "chai-http": "^5.0.0",
+    "mocha": "^10.7.3",
+    "mongodb-memory-server": "^10.0.0",
+    "mongoose": "^8.6.2",
+    "prettier": "^3.3.3",
+    "sinon": "^19.0.2",
+    "supertest": "^7.0.0"
   }
 }
