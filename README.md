@@ -27,16 +27,16 @@ For details on configuring Vite, refer to the [Vite Configuration Reference](htt
 
    ```bash
    git clone https://github.com/GayatriKhandalikar/hierarchyGraph-.git 
-   hierarchyGraph-/graph-frontend
+   cd hierarchyGraph-/graph-frontend
    ```
 
 2. **Install Dependencies**
 
    To install the necessary dependencies, run:
 
-   ```sh
-   npm install
-   ```
+  ```bash
+npm install
+```
 
 3. **Start Development Server**
 
