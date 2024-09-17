@@ -1,30 +1,10 @@
 import { ref, onMounted } from 'vue'
 import * as d3 from 'd3'
+import fetchData from './DataFetch'
 
 const error = ref(null)
 
-const fetchData = (apiUrl) => {
-  return fetch(apiUrl)
-    .then((response) => {
-      if (!response.ok) {
-        // Throw an error if the response is not okay
-        throw new Error(
-          `Network request failed with status: ${response.status} (${response.statusText})`
-        )
-      }
-      // Parse and return the JSON data
-      return response.json()
-    })
-    .then((graphData) => {
-      return graphData
-    })
-    .catch((err) => {
-      // Handle any errors that occur during the fetch
-      error.value = err.message
-      console.error('Failed to fetch data:', err.message)
-      return null
-    })
-}
+
 const generateHierarchy = (graphData) => {
   const map = graphData.reduce((acc, item) => {
     acc[item.name] = { ...item, children: [] }
@@ -43,7 +23,7 @@ const generateHierarchy = (graphData) => {
   return hierarchy[0] // Return the root node of the hierarchy
 }
 
-export function useGraph(apiUrl, isModalOpen) {
+export function useGraph(isModalOpen) {
   const hierarchyGraph = ref(null)
   const nodeData = ref([])
 
@@ -55,7 +35,7 @@ export function useGraph(apiUrl, isModalOpen) {
 
   const buildGraph = async () => {
     try {
-      const data = await fetchData(apiUrl)
+      const data = await fetchData()
       if (!data || data.length === 0) {
         error.value = 'There is no data or empty data'
         return

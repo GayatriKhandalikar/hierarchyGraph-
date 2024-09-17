@@ -18,12 +18,10 @@ import { useGraph } from '../../composable/useGraphView.js';
 import BaseModal from '@/components/UI/modal.vue'
 import { ref, computed } from 'vue';
 
-const apiUrl = 'api/data';
-
 // is Modal visible
 const isModalOpen = ref(false);
 
-const { hierarchyGraph, error, nodeData, closeModal } = useGraph(apiUrl, isModalOpen);
+const { hierarchyGraph, error, nodeData, closeModal } = useGraph(isModalOpen);
 
 const selectedNode = computed(() => {
     return nodeData.value;
